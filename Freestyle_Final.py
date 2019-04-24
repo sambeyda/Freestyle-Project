@@ -47,12 +47,14 @@ for row in rows:
         rank = cells[0].text
         #team_name = cells[1].text #> includes the rank as well, so if you just want the team name...
         team_name = cells[1].find("a").text
-        print(f"{rank}) {team_name} ")
+        AdjO=cells[5].text #Teams adjusted offensive efficiency
+        AdjD=cells[7].text #Teams adjusted Defense
+        Tempo=cells[9].text #Teams Tempo
+        print(f"{rank}) {team_name} Adjusted Offense:  {AdjO}, Adjusted Defense: {AdjD}, Tempo: {Tempo} ")
     except IndexError as e:
-        print(e)
+        print("")
         #breakpoint()
         # looks like offending rows include:
-
         # <tr class="thead1">
         #   <th class="hard_left"></th>
         #   <th class="next_left"></th>
