@@ -12,6 +12,7 @@ print("------------------")
 print("Welcome to OPIM analytics' college basketball points predictor tool")
 print("Here you will enter two D1 basketball teams, and our program will spit out the projected score based off of Kenpom data")
 print("------------------")
+###Will need to put data validation to make sure user inputs valid teams!!!!
 User_team1=input("Please enter team 1:")
 User_team2=input("Please enter team 2:")
 print("GETTING HTML CONTENTS...")
@@ -20,11 +21,16 @@ print("GETTING HTML CONTENTS...")
 #
 #print(f"The score for {User_team1} vs {User_team2} is:")
 
-# TODO: use the requests package to get the contents of the page, instead of reading from file
-# ... if you need to get behind the paywall to access the page, you can use the selenium package to automate the login process
+base_filepath = 'http://kenpom.com/index.php' #changed professor's filepath
+#Use Requests package to get contents of page
+raw_data = requests.get(base_filepath)
+soup=BeautifulSoup(raw_data.text)
+ratings_table = soup.find("table", id="ratings-table")
+
 print("RATINGS TABLE", type(ratings_table))
 
 rows = ratings_table.find("tbody").findAll("tr") 
+
 # weird, seeing some thead rows (like Strength of Schedule) in here as well...
 print("ROWS", type(rows), len(rows))
 #breakpoint()
@@ -41,7 +47,7 @@ for row in rows:
         rank = cells[0].text
         #team_name = cells[1].text #> includes the rank as well, so if you just want the team name...
         team_name = cells[1].find("a").text
-        print(f"{rank}) {User_team1} ")
+        print(f"{rank}) {team_name} ")
     except IndexError as e:
         print(e)
         #breakpoint()
