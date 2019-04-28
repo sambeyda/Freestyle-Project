@@ -13,8 +13,8 @@ print("Welcome to OPIM analytics' college basketball points predictor tool")
 print("Here you will enter two D1 basketball teams, and our program will spit out the projected score based off of Kenpom data")
 print("------------------")
 ###Will need to put data validation to make sure user inputs valid teams!!!!
-User_team1=input("Please enter team 1:")
-User_team2=input("Please enter team 2:")
+User_team1=input("Please enter team 1: ")
+User_team2=input("Please enter team 2: ")
 print("GETTING HTML CONTENTS...")
 #
 ##SCRAPING KENPOM DATA 
@@ -34,6 +34,7 @@ rows = ratings_table.find("tbody").findAll("tr")
 # weird, seeing some thead rows (like Strength of Schedule) in here as well...
 print("ROWS", type(rows), len(rows))
 #breakpoint()
+teams=[]
 
 for row in rows:
     print("--------------------")
@@ -50,7 +51,14 @@ for row in rows:
         AdjO=cells[5].text #Teams adjusted offensive efficiency
         AdjD=cells[7].text #Teams adjusted Defense
         Tempo=cells[9].text #Teams Tempo
-        print(f"{rank}) {team_name} Adjusted Offense:  {AdjO}, Adjusted Defense: {AdjD}, Tempo: {Tempo} ")
+        team = {
+          "Name": team_name,
+          "AdjO": float(AdjO),
+          "AdjD": float(AdjD),
+          "Tempo": float(Tempo),
+        }
+        teams.append(team)
+        #print(f"{rank}) {team_name} Adjusted Offense:  {AdjO}, Adjusted Defense: {AdjD}, Tempo: {Tempo} ")
     except IndexError as e:
         print("")
         #breakpoint()
@@ -67,3 +75,8 @@ for row in rows:
         # </tr>
         # hoefully we can just skip them
         #next()
+matching_team1 = [t for t in teams if t["Name"]==User_team1]
+matching_team2 = [t for t in teams if t["Name"]==User_team2]
+
+print(matching_team1[0]["Name"])
+print(matching_team2[0]["AdjO"])
