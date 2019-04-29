@@ -77,6 +77,13 @@ for row in rows:
         #next()
 matching_team1 = [t for t in teams if t["Name"]==User_team1]
 matching_team2 = [t for t in teams if t["Name"]==User_team2]
+matching_team1_tempo = matching_team1[0]["Tempo"]
+matching_team2_tempo = matching_team1[0]["Tempo"]
 
-print(matching_team1[0]["Name"])
-print(matching_team2[0]["AdjO"])
+matching_team1_efficiency_adv = statistics.mean([matching_team1[0]["AdjO"],matching_team2[0]["AdjD"]])
+matching_team1_std=(matching_team1_efficiency_adv/100)
+matching_team2_efficiency_adv = statistics.mean([matching_team2[0]["AdjO"],matching_team1[0]["AdjD"]])
+matching_team2_std=(matching_team2_efficiency_adv/100
+
+#print(matching_team1[0]["Name"])
+#print(matching_team2[0]["AdjO"])
