@@ -21,9 +21,13 @@ Our model is quite simple: pick any two schools. The user will be asked to selec
 1. Clone or download this repository onto your local computer
 
 2. Install all required packages:
-  Pip install -r requirements.t 
+
+  pip install -r requirements.txt
+  
       (install beautifulsoup4, install requests, install statistics)
-3. Navigate to local directory, and run script
+   
+3. Navigate to local directory, and run script:
+
   Python Freestyle_Final.py
 
 
