@@ -70,9 +70,6 @@ except IndexError:
   exit()
 
 
-matching_team1_tempo = matching_team1[0]["Tempo"] #Team1 tempo
-matching_team2_tempo = matching_team2[0]["Tempo"] #Team2 tempo
-
 #Efficiency factor: How well Team1's offense will perform against Team2's defense
 matching_team1_efficiency_adv = statistics.mean([matching_team1[0]["AdjO"],matching_team2[0]["AdjD"]])
 matching_team1_std=(matching_team1_efficiency_adv/100) #Standardize per 100 possesions
