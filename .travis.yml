@@ -1,4 +1,7 @@
-language: python
+language: python 2.7
+
+python: 2.7
+
 
 #pytest for the score to make sure no extreme values are returned
 def func (Final_score):
