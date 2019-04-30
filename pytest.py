@@ -4,8 +4,7 @@
 #pytest to determine if algorithm ran correctly
 #This test checks if our model spits out any extreme values
 
-def Final_score():
-    return (Final_score)
+from Freestyle_final import Final_score
 
 def test_max():
     assert Final_score < 200
