@@ -22,13 +22,13 @@ Our model is quite simple: pick any two schools. The user will be asked to selec
 
 2. Install all required packages:
 
-  pip install requirements.txt
+      pip install requirements.txt
   
     If trouble, make sure to locally install beautifulsoup4, install requests, install statistics
    
 3. Navigate to local directory, and run script:
 
-      python Freestyle_Final.py
+      python Freestyle_final.py
 
 
 # Disclaimer: Bearing potential costs
