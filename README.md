@@ -17,6 +17,15 @@ We use Adjusted Offense, which standardizes how many points a team will score on
 
 Our model is quite simple: pick any two schools. The user will be asked to select any 2 of the 353 teams in NCAA DI basketball, and our model will run through selected stats courtesy of Ken Pomeroy to find a points projection.
 
+# Programming Requirements
+1. Clone or download this repository onto your local computer
+
+2. Install all required packages:
+  Pip install -r requirements.t 
+      (install beautifulsoup4, install requests, install statistics)
+3. Navigate to local directory, and run script
+  Python Freestyle_final.py
+
 
 # Disclaimer: Bearing potential costs
 
