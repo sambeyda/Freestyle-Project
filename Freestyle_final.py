@@ -59,8 +59,16 @@ for row in rows: #Loop
 ##
 #Matching User Input to Team in List
 ##
-matching_team1 = [t for t in teams if t["Name"]==User_team1]
-matching_team2 = [t for t in teams if t["Name"]==User_team2]
+print("------------------")
+try: #DATA VALIDATION to exit script if user's inputted teams aren't found
+  matching_team1 = [t for t in teams if t["Name"]==User_team1]
+  matching_team2 = [t for t in teams if t["Name"]==User_team2]
+  matching_team1_tempo = matching_team1[0]["Tempo"] #Team1 tempo
+  matching_team2_tempo = matching_team2[0]["Tempo"] #Team2 tempo
+except IndexError:
+  print("Your inputted teams cannot be found, please run the script again!")
+  exit()
+
 
 matching_team1_tempo = matching_team1[0]["Tempo"] #Team1 tempo
 matching_team2_tempo = matching_team2[0]["Tempo"] #Team2 tempo
@@ -77,9 +85,8 @@ matching_team2_std=(matching_team2_efficiency_adv/100) #Standardize per 100 poss
 total_efficiency_factor = statistics.mean([matching_team1_std,matching_team2_std])*2
 Average_tempo=statistics.mean([matching_team1_tempo,matching_team2_tempo])
 Final_score=total_efficiency_factor*Average_tempo
-print("--------------------")
 print("ALGORITHM SUCCESSFUL")
-print("--------------------")
+print("------------------")
 print(f"The total predicted amount of points scored in a hypothetical game between {User_team1} and {User_team2} is: {int(Final_score)}")
-print("--------------------")
+print("------------------")
 print("PLEASE INVEST WISELY: OPIM ANALYTICS DOES NOT TAKE RESPONSIBILITY!!!!")
