@@ -1,2 +1,11 @@
 language: python
 
+#pytest for the score to make sure no extreme values are returned
+def func (Final_score):
+    return (Final_score)
+
+def test_max():
+    assert func(Final_score) < 200
+
+def test_min():
+    assert func(Final_score) > 50
