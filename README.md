@@ -22,9 +22,9 @@ Our model is quite simple: pick any two schools. The user will be asked to selec
 
 2. Install all required packages:
 
-  pip install -r requirements.txt
+  pip install requirements.txt
   
-      install beautifulsoup4, install requests, install statistics
+    If trouble, make sure to locally install beautifulsoup4, install requests, install statistics
    
 3. Navigate to local directory, and run script:
 
